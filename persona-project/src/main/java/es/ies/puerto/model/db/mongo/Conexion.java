@@ -1,4 +1,4 @@
-package es.ies.puerto.mongo.db;
+package es.ies.puerto.model.db.mongo;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

@@ -1,8 +1,8 @@
-package es.ies.puerto.model.entities.impl;
+package es.ies.puerto.business.dto;
 
 import java.util.Objects;
 
-public class PersonaUser {
+public class PersonaUserDTO {
     private int id;
     private String name;
     private String lastName;
@@ -10,13 +10,13 @@ public class PersonaUser {
     private String arcana;
     private boolean wildCard;
 
-    public PersonaUser() {}
+    public PersonaUserDTO() {}
 
-    public PersonaUser(int id) {
+    public PersonaUserDTO(int id) {
         this.id = id;
     }
 
-    public PersonaUser(int id, String name, String lastName, String game, String arcana, boolean wildCard) {
+    public PersonaUserDTO(int id, String name, String lastName, String game, String arcana, boolean wildCard) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -77,8 +77,8 @@ public class PersonaUser {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PersonaUser that = (PersonaUser) o;
-        return id == that.id;
+        PersonaUserDTO personaUserDTO = (PersonaUserDTO) o;
+        return id == personaUserDTO.id;
     }
 
     @Override

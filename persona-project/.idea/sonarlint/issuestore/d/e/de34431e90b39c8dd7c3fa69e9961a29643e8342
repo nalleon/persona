@@ -1,0 +1,14 @@
+
+k	java:S106"+Replace this use of System.out by a logger.(È™˜ìùÿÿÿÿJ$2b9b50c3-9555-41c5-ab71-24a2bce2b1fa
+k	java:S106"+Replace this use of System.out by a logger.(ÒãÅøÿÿÿÿJ$be754fc2-1896-4656-b70c-2d0c913bd656
+u
+java:S1128"9Remove this unused import 'com.mongodb.ConnectionString'.(²ôğJ$ee09c0ed-c4b1-41e3-8dc6-43c94d121650
+w
+java:S1128"<Remove this unused import 'com.mongodb.MongoClientSettings'.(Œ˜©)J$f244905d-944d-49f6-9a76-56216824c0dc
+s
+java:S1128"7Remove this unused import 'com.mongodb.MongoException'.(­ÙÏ‹J$d797c59b-4066-4f76-9f51-38bcee2c81bc
+n
+java:S1128"2Remove this unused import 'com.mongodb.ServerApi'.(óÖçŞJ$4ef42c6e-72b5-45d8-b45d-1380beafada9
+u
+java:S1128"9Remove this unused import 'com.mongodb.ServerApiVersion'.(¨ñ„¡J$300a3fa3-b923-486f-aeb6-2841a38b85b2
+”secrets:S6694"PMake sure this MongoDB database password gets changed and removed from the code.(å¨ÇúÿÿÿÿJ$d8383ce3-e1c4-4d16-be30-5e7ad6ad2849

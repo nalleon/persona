@@ -1,23 +1,23 @@
-package es.ies.puerto.model.entities.impl;
+package es.ies.puerto.business.dto;
 
 import java.util.Objects;
 import java.util.Set;
 
-public class Persona {
+public class PersonaDTO {
     private int id;
     private String name;
     private String arcana;
     private Set<String> strengths;
     private Set<String> weaknesses;
 
-    public Persona() {
+    public PersonaDTO() {
     }
 
-    public Persona(int id) {
+    public PersonaDTO(int id) {
         this.id = id;
     }
 
-    public Persona(int id, String name, String arcana, Set<String> strengths, Set<String> weaknesses) {
+    public PersonaDTO(int id, String name, String arcana, Set<String> strengths, Set<String> weaknesses) {
         this.id = id;
         this.name = name;
         this.arcana = arcana;
@@ -81,8 +81,8 @@ public class Persona {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        Persona persona = (Persona) object;
-        return id == persona.id;
+        PersonaDTO personaDTO = (PersonaDTO) object;
+        return id == personaDTO.id;
     }
 
     @Override

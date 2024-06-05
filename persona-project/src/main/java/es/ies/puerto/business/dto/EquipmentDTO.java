@@ -1,20 +1,20 @@
-package es.ies.puerto.model.entities.impl;
+package es.ies.puerto.business.dto;
 
 import java.util.Objects;
 
-public class Equipment {
+public class EquipmentDTO {
     private int id;
     private String weaponName;
     private String weaponType;
     private int shopPrice;
 
-    public Equipment() {}
+    public EquipmentDTO() {}
 
-    public Equipment(int id) {
+    public EquipmentDTO(int id) {
         this.id = id;
     }
 
-    public Equipment(int id, String weaponName, String weaponType, int shopPrice) {
+    public EquipmentDTO(int id, String weaponName, String weaponType, int shopPrice) {
         this.id = id;
         this.weaponName = weaponName;
         this.weaponType = weaponType;
@@ -57,8 +57,8 @@ public class Equipment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Equipment equipment = (Equipment) o;
-        return id == equipment.id;
+        EquipmentDTO equipmentDTO = (EquipmentDTO) o;
+        return id == equipmentDTO.id;
     }
 
     @Override

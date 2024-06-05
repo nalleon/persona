@@ -1,8 +1,13 @@
 package es.ies.puerto.model.entities.impl;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Objects;
 
+@Document("PersonaUser")
 public class PersonaUser {
+    @Id
     private int id;
     private String name;
     private String lastName;

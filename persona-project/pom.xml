@@ -15,7 +15,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>start-spring-data</name>
-	<description>Proyecto de ejemplo en spring data</description>
+	<description>Proyecto de bbdd en mongo</description>
 
 
 	<properties>
@@ -42,6 +42,18 @@
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+			<version>5.1.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.mapstruct</groupId>
@@ -73,12 +85,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver-sync</artifactId>
-			<version>5.1.0</version>
 		</dependency>
 	</dependencies>
 

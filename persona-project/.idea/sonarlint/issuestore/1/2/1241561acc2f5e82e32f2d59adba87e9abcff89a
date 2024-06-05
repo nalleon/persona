@@ -1,0 +1,14 @@
+
+E	java:S106"+Replace this use of System.out by a logger.(È™˜ìùÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(ÒãÅøÿÿÿÿ
+O
+java:S1128"9Remove this unused import 'com.mongodb.ConnectionString'.(²ôğ
+Q
+java:S1128"<Remove this unused import 'com.mongodb.MongoClientSettings'.(Œ˜©)
+M
+java:S1128"7Remove this unused import 'com.mongodb.MongoException'.(­ÙÏ‹
+H
+java:S1128"2Remove this unused import 'com.mongodb.ServerApi'.(óÖçŞ
+O
+java:S1128"9Remove this unused import 'com.mongodb.ServerApiVersion'.(¨ñ„¡
+nsecrets:S6694"PMake sure this MongoDB database password gets changed and removed from the code.(å¨Çúÿÿÿÿ

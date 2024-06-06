@@ -1,6 +1,5 @@
-package es.ies.puerto.model.entities;
+package es.ies.puerto.business.dto;
 
-import es.ies.puerto.model.entities.impl.Equipment;
 import es.ies.puerto.model.entities.impl.Persona;
 import es.ies.puerto.utilities.UtilitiesTest;
 import org.junit.jupiter.api.Assertions;
@@ -10,16 +9,16 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class PersonaTest extends UtilitiesTest {
+public class PersonaDTOTest extends UtilitiesTest {
     public static final int ID = 1;
     public static final String NAME = "nameTest";
     public static final String ARCANA = "arcanaTest";
     public static final HashSet<String> WEAKNESSES = new HashSet<>(Arrays.asList("wkn1", "wkn2"));
     public static final HashSet<String> STRENGTHS = new HashSet<>(Arrays.asList("str1", "str2"));
-    Persona persona;
+    PersonaDTO persona;
     @BeforeEach
     public void beforeEach(){
-        persona = new Persona();
+        persona = new PersonaDTO();
         persona.setId(ID);
         persona.setName(NAME);
         persona.setArcana(ARCANA);
@@ -29,7 +28,6 @@ public class PersonaTest extends UtilitiesTest {
 
     @Test
     public void getSetTest(){
-
         Assertions.assertEquals(ID, persona.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(NAME, persona.getName(), MESSAGE_ERROR);
         Assertions.assertEquals(ARCANA, persona.getArcana(), MESSAGE_ERROR);
@@ -39,10 +37,10 @@ public class PersonaTest extends UtilitiesTest {
 
     @Test
     public void equalsTest(){
-        Persona equalsObject = new Persona(ID);
-        Persona notEquals = new Persona(34, NAME, ARCANA, STRENGTHS, WEAKNESSES);
+        PersonaDTO equalsObject = new PersonaDTO(ID);
+        PersonaDTO notEquals = new PersonaDTO(34, NAME, ARCANA, STRENGTHS, WEAKNESSES);
         String str = "strTest";
-        Persona nullObject = null;
+        PersonaDTO nullObject = null;
 
         Assertions.assertEquals(equalsObject.hashCode(), persona.hashCode(), MESSAGE_ERROR);
         Assertions.assertEquals(equalsObject, persona, MESSAGE_ERROR);

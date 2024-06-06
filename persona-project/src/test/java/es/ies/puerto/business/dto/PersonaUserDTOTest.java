@@ -1,4 +1,4 @@
-package es.ies.puerto.model.entities;
+package es.ies.puerto.business.dto;
 
 import es.ies.puerto.model.entities.impl.PersonaUser;
 import es.ies.puerto.utilities.UtilitiesTest;
@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PersonaUserTest extends UtilitiesTest {
+public class PersonaUserDTOTest extends UtilitiesTest {
     public static final int ID = 1;
     public static final String NAME = "nameTest";
     public static final String ARCANA = "arcanaTest";
     public static final String LAST_NAME = "lastNameTest";
     public static final boolean WILD_CARD = true;
     public static final String GAME = "gameTest";
-    PersonaUser personaUser;
+    PersonaUserDTO personaUser;
     @BeforeEach
     public void beforeEach(){
-        personaUser = new PersonaUser();
+        personaUser = new PersonaUserDTO();
         personaUser.setId(ID);
         personaUser.setName(NAME);
         personaUser.setLastName(LAST_NAME);
@@ -33,14 +33,15 @@ public class PersonaUserTest extends UtilitiesTest {
         Assertions.assertEquals(LAST_NAME, personaUser.getLastName(), MESSAGE_ERROR);
         Assertions.assertEquals(GAME, personaUser.getGame(), MESSAGE_ERROR);
         Assertions.assertEquals(WILD_CARD, personaUser.isWildCard(), MESSAGE_ERROR);
+
     }
 
     @Test
     public void equalsTest(){
-        PersonaUser equalsObject = new PersonaUser(ID);
-        PersonaUser notEquals = new PersonaUser(34, NAME, LAST_NAME, ARCANA, GAME, WILD_CARD);
+        PersonaUserDTO equalsObject = new PersonaUserDTO(ID);
+        PersonaUserDTO notEquals = new PersonaUserDTO(34, NAME, LAST_NAME, ARCANA, GAME, WILD_CARD);
         String str = "strTest";
-        PersonaUser nullObject = null;
+        PersonaUserDTO nullObject = null;
 
         Assertions.assertEquals(equalsObject.hashCode(), personaUser.hashCode(), MESSAGE_ERROR);
         Assertions.assertEquals(equalsObject, personaUser, MESSAGE_ERROR);

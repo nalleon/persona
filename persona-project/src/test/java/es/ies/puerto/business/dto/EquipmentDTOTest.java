@@ -1,4 +1,4 @@
-package es.ies.puerto.model.entities;
+package es.ies.puerto.business.dto;
 
 import es.ies.puerto.model.entities.impl.Equipment;
 import es.ies.puerto.utilities.UtilitiesTest;
@@ -6,16 +6,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class EquipmentTest extends UtilitiesTest {
+public class EquipmentDTOTest extends UtilitiesTest {
 
     public static final int ID = 1;
     public static final String NAME = "nameTest";
     public static final int SHOP_PRICE = 1234;
     public static final String WEAPON_TYPE = "weaponTypeTest";
-    Equipment equipment;
+    EquipmentDTO equipment;
     @BeforeEach
     public void beforeEach(){
-        equipment = new Equipment();
+        equipment = new EquipmentDTO();
         equipment.setId(ID);
         equipment.setWeaponName(NAME);
         equipment.setShopPrice(SHOP_PRICE);
@@ -32,10 +32,10 @@ public class EquipmentTest extends UtilitiesTest {
 
     @Test
     public void equalsTest(){
-        Equipment equalsObject = new Equipment(ID);
-        Equipment notEquals = new Equipment(34, NAME, WEAPON_TYPE, SHOP_PRICE);
+        EquipmentDTO equalsObject = new EquipmentDTO(ID);
+        EquipmentDTO notEquals = new EquipmentDTO(34, NAME, WEAPON_TYPE, SHOP_PRICE);
         String str = "strTest";
-        Equipment nullObject = null;
+        EquipmentDTO nullObject = null;
 
         Assertions.assertEquals(equalsObject.hashCode(), equipment.hashCode(), MESSAGE_ERROR);
         Assertions.assertEquals(equalsObject, equipment, MESSAGE_ERROR);

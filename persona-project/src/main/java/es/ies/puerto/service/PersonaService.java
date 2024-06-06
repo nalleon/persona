@@ -7,6 +7,7 @@ import es.ies.puerto.model.entities.impl.Persona;
 import es.ies.puerto.service.interfaces.IServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class PersonaService implements IServices<PersonaDTO> {
 
     private IPersonaDao iPersonaDao;
 
+    @Autowired
     public void setPersonaDao(IPersonaDao iPersonaDao) {
         this.iPersonaDao = iPersonaDao;
     }
@@ -31,7 +33,7 @@ public class PersonaService implements IServices<PersonaDTO> {
     @Override
     public void updateCollection(PersonaDTO personaDTO) {
         Persona persona = iPersonaDao.findById(personaDTO.getId()).orElseThrow(
-                () -> new RuntimeException(String.format("Cannot find by ID")));
+                () -> new RuntimeException("Cannot find by ID"));
 
         persona = IMapperPersona.INSTANCE.personaDTOToPersona(personaDTO);
 
@@ -49,12 +51,16 @@ public class PersonaService implements IServices<PersonaDTO> {
     }
 
     @Override
-    public void getByIdFromCollection() {
-
+    public PersonaDTO getByIdFromCollection(int id) {
+        Persona persona = iPersonaDao.findById(id).orElseThrow(
+                () -> new RuntimeException("Cannot find by ID"));
+        return IMapperPersona.INSTANCE.personaToPersonaDTO(persona);
     }
 
     @Override
-    public void deleteFromCollection() {
-
+    public void deleteFromCollection(int id) {
+        Persona persona = iPersonaDao.findById(id).orElseThrow(
+                () -> new RuntimeException("Cannot find by ID"));
+        iPersonaDao.delete(persona);
     }
 }

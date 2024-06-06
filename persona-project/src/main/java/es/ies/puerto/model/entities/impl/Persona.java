@@ -5,9 +5,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 import java.util.Set;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Document("Compendium")
 public class Persona {
+    /**
+     * Properties
+     */
+
     @Id
     private int id;
     private String name;
@@ -15,12 +22,29 @@ public class Persona {
     private Set<String> strengths;
     private Set<String> weaknesses;
 
+    /**
+     * Default constructor of the class
+     */
     public Persona() {
     }
+
+    /**
+     * Constructor of the class
+     * @param id of the Persona
+     */
 
     public Persona(int id) {
         this.id = id;
     }
+
+    /**
+     * Constructor of the class
+     * @param id of the Persona
+     * @param name of the Persona
+     * @param arcana of the Persona
+     * @param strengths of the Persona
+     * @param weaknesses of the Persona
+     */
 
     public Persona(int id, String name, String arcana, Set<String> strengths, Set<String> weaknesses) {
         this.id = id;
@@ -30,7 +54,9 @@ public class Persona {
         this.weaknesses = weaknesses;
     }
 
-
+    /**
+     * Getters and setters
+     */
     public int getId() {
         return id;
     }

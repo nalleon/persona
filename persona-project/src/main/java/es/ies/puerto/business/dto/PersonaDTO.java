@@ -2,21 +2,42 @@ package es.ies.puerto.business.dto;
 
 import java.util.Objects;
 import java.util.Set;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 public class PersonaDTO {
+    /**
+     * Properties
+     */
     private int id;
     private String name;
     private String arcana;
     private Set<String> strengths;
     private Set<String> weaknesses;
 
+    /**
+     * Default constructor of the class
+     */
     public PersonaDTO() {
     }
 
+    /**
+     * Constructor of the class
+     * @param id of the PersonaDTO
+     */
     public PersonaDTO(int id) {
         this.id = id;
     }
 
+    /**
+     * Constructor of the class
+     * @param id of the PersonaDTO
+     * @param name of the PersonaDTO
+     * @param arcana of the PersonaDTO
+     * @param strengths of the PersonaDTO
+     * @param weaknesses of the PersonaDTO
+     */
     public PersonaDTO(int id, String name, String arcana, Set<String> strengths, Set<String> weaknesses) {
         this.id = id;
         this.name = name;
@@ -25,7 +46,9 @@ public class PersonaDTO {
         this.weaknesses = weaknesses;
     }
 
-
+    /**
+     * Getters and setters
+     */
     public int getId() {
         return id;
     }

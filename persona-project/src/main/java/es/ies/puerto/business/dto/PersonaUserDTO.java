@@ -1,8 +1,13 @@
 package es.ies.puerto.business.dto;
-
 import java.util.Objects;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 public class PersonaUserDTO {
+    /**
+     * Properties
+     */
     private int id;
     private String name;
     private String lastName;
@@ -10,12 +15,28 @@ public class PersonaUserDTO {
     private String arcana;
     private boolean wildCard;
 
+    /**
+     * Default constructor of the class
+     */
     public PersonaUserDTO() {}
 
+    /**
+     * Constructor of the class
+     * @param id of the PersonaUserDTO
+     */
     public PersonaUserDTO(int id) {
         this.id = id;
     }
 
+    /**
+     * Constructor of the class
+     * @param id of the PersonaUserDTO
+     * @param name of the PersonaUserDTO
+     * @param lastName of the PersonaUserDTO
+     * @param game of the PersonaUserDTO
+     * @param arcana of the PersonaUserDTO
+     * @param wildCard of the PersonaUserDTO
+     */
     public PersonaUserDTO(int id, String name, String lastName, String game, String arcana, boolean wildCard) {
         this.id = id;
         this.name = name;
@@ -25,6 +46,9 @@ public class PersonaUserDTO {
         this.wildCard = wildCard;
     }
 
+    /**
+     * Getters and setters
+     */
     public int getId() {
         return id;
     }

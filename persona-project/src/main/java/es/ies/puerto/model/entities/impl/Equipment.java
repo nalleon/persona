@@ -5,26 +5,52 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Document("Equipment")
 public class Equipment {
+    /**
+     * Properties
+     */
     @Id
     private int id;
     private String weaponName;
     private String weaponType;
     private int shopPrice;
 
+    /**
+     * Default constructor of the class
+     */
     public Equipment() {}
+
+    /**
+     * Constructor of the class
+     * @param id of the Equipment
+     */
 
     public Equipment(int id) {
         this.id = id;
     }
 
+    /**
+     * Constructor of the class
+     * @param id of the Equipment
+     * @param weaponName of the Equipment
+     * @param weaponType of the Equipment
+     * @param shopPrice of the Equipment
+     */
     public Equipment(int id, String weaponName, String weaponType, int shopPrice) {
         this.id = id;
         this.weaponName = weaponName;
         this.weaponType = weaponType;
         this.shopPrice = shopPrice;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public int getId() {
         return id;
@@ -57,6 +83,7 @@ public class Equipment {
     public void setShopPrice(int shopPrice) {
         this.shopPrice = shopPrice;
     }
+
 
     @Override
     public boolean equals(Object o) {

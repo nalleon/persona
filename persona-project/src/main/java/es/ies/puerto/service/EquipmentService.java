@@ -13,13 +13,24 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Service
 public class EquipmentService implements IServices<EquipmentDTO> {
+
+    /**
+     * Properties
+     */
     private final static Logger LOGGER = LoggerFactory.getLogger(EquipmentService.class);
 
     private IEquipmentDao iEquipmentDao;
 
+    /**
+     * Setter of the dao
+     * @param iEquipmentDao
+     */
     @Autowired
     public void setEquipmentDao(IEquipmentDao iEquipmentDao) {
         this.iEquipmentDao = iEquipmentDao;

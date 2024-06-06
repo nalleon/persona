@@ -4,7 +4,10 @@ import es.ies.puerto.business.dto.EquipmentDTO;
 import es.ies.puerto.model.entities.impl.Equipment;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Mapper
 public interface IMapperEquipment {
     IMapperEquipment INSTANCE = Mappers.getMapper(IMapperEquipment.class);

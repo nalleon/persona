@@ -3,7 +3,10 @@ package es.ies.puerto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @SpringBootApplication
 public class PersonaApplication {
 

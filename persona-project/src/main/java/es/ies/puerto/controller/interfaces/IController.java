@@ -5,7 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 public interface IController <T> {
     public ResponseEntity add(T t);
     public ResponseEntity update(T t);

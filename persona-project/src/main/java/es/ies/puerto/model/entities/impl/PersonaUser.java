@@ -4,9 +4,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Document("PersonaUser")
 public class PersonaUser {
+    /**
+     * Properties
+     */
     @Id
     private int id;
     private String name;
@@ -15,12 +21,29 @@ public class PersonaUser {
     private String arcana;
     private boolean wildCard;
 
+    /**
+     * Default constructor of the class
+     */
     public PersonaUser() {}
+
+    /**
+     * Constructor of the class
+     * @param id of the PersonaUser
+     */
 
     public PersonaUser(int id) {
         this.id = id;
     }
 
+    /**
+     * Constructor of the class
+     * @param id of the PersonaUser
+     * @param name of the PersonaUser
+     * @param lastName of the PersonaUser
+     * @param game of the PersonaUser
+     * @param arcana of the PersonaUser
+     * @param wildCard of the PersonaUser
+     */
     public PersonaUser(int id, String name, String lastName, String game, String arcana, boolean wildCard) {
         this.id = id;
         this.name = name;
@@ -29,6 +52,10 @@ public class PersonaUser {
         this.arcana = arcana;
         this.wildCard = wildCard;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public int getId() {
         return id;

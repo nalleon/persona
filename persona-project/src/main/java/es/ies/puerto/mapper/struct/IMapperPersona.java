@@ -4,7 +4,10 @@ import es.ies.puerto.business.dto.PersonaDTO;
 import es.ies.puerto.model.entities.impl.Persona;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Mapper
 public interface IMapperPersona {
     IMapperPersona INSTANCE = Mappers.getMapper(IMapperPersona.class);

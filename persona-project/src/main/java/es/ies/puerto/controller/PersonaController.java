@@ -9,19 +9,37 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @RestController
 @RequestMapping("/persona")
 public class PersonaController implements IController<PersonaDTO> {
+
+    /**
+     * Properties
+     */
     private PersonaService personaService;
 
+    /**
+     * Deafult constructor of the class
+     */
     public PersonaController() {
     }
 
+    /**
+     * Constructor of the class
+     * @param personaService of the PersonaController
+     */
     public PersonaController(PersonaService personaService) {
         this.personaService = personaService;
     }
 
+    /**
+     * Setter of the service
+     * @param personaService of the PersonaController
+     */
     @Autowired
     public void setPersonaService(PersonaService personaService) {
         this.personaService = personaService;

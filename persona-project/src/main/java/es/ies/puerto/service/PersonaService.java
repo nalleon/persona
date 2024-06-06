@@ -13,13 +13,23 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @Service
 public class PersonaService implements IServices<PersonaDTO> {
+    /**
+     * Properties
+     */
     private final static Logger LOGGER = LoggerFactory.getLogger(PersonaService.class);
 
     private IPersonaDao iPersonaDao;
 
+    /**
+     * Setter of the dao
+     * @param iPersonaDao
+     */
     @Autowired
     public void setPersonaDao(IPersonaDao iPersonaDao) {
         this.iPersonaDao = iPersonaDao;

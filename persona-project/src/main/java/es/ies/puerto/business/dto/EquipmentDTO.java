@@ -1,18 +1,39 @@
 package es.ies.puerto.business.dto;
 
 import java.util.Objects;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 public class EquipmentDTO {
+    /**
+     * Properties
+     */
     private int id;
     private String weaponName;
     private String weaponType;
     private int shopPrice;
 
+    /**
+     * Default constructor of the class
+     */
     public EquipmentDTO() {}
 
+    /**
+     * Constructor of the class
+     * @param id of the EquipmentDTO
+     */
     public EquipmentDTO(int id) {
         this.id = id;
     }
+
+    /**
+     * Constructor of the class
+     * @param id of the EquipmentDTO
+     * @param weaponName of the EquipmentDTO
+     * @param weaponType of the EquipmentDTO
+     * @param shopPrice of the EquipmentDTO
+     */
 
     public EquipmentDTO(int id, String weaponName, String weaponType, int shopPrice) {
         this.id = id;
@@ -25,6 +46,9 @@ public class EquipmentDTO {
         return id;
     }
 
+    /**
+     * Getters and setters
+     */
     public void setId(int id) {
         this.id = id;
     }

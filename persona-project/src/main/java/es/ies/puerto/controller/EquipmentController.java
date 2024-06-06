@@ -9,19 +9,38 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ * @author mackstm
+ * @author nalleon
+ */
 @RestController
 @RequestMapping("/equipment")
 public class EquipmentController implements IController<EquipmentDTO> {
+
+    /**
+     * Properties
+     */
     private EquipmentService equipmentService;
 
+    /**
+     * Default constructor of the class
+     */
     public EquipmentController() {
     }
+
+    /**
+     * Constructor of the class
+     * @param equipmentService of the EquipmentController
+     */
 
     public EquipmentController(EquipmentService equipmentService) {
         this.equipmentService = equipmentService;
     }
 
+    /**
+     * Setter of the service
+     * @param equipmentService of the EquipmentController
+     */
     @Autowired
     public void setEquipmentService(EquipmentService equipmentService) {
         this.equipmentService = equipmentService;

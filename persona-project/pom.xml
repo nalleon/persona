@@ -13,7 +13,7 @@
 	<groupId>es.ies.puerto</groupId>
 	<artifactId>persona-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>start-spring-data</name>
+	<name>persona-project</name>
 	<description>Proyecto de bbdd en mongo</description>
 
 
@@ -28,6 +28,10 @@
 		<checkstyle.version>8.39</checkstyle.version>
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
 		<jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
+		<jacoco.unit-tests.limit.instruction-ratio>0%</jacoco.unit-tests.limit.instruction-ratio>
+		<jacoco.unit-tests.limit.branch-ratio>0%</jacoco.unit-tests.limit.branch-ratio>
+		<jacoco.unit-tests.limit.class-complexity>30</jacoco.unit-tests.limit.class-complexity>
+		<jacoco.unit-tests.limit.method-complexity>10</jacoco.unit-tests.limit.method-complexity>
 		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sqlite-jdbc.version>3.32.3</sqlite-jdbc.version>
@@ -136,7 +140,73 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>check-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<dataFile>${project.build.directory}/jacoco.exec</dataFile>
+							<rules>
+								<rule>
+									<element>BUNDLE</element>
+									<limits>
+										<limit>
+											<counter>INSTRUCTION</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>${jacoco.unit-tests.limit.instruction-ratio}</minimum>
+										</limit>
+										<limit>
+											<counter>BRANCH</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>${jacoco.unit-tests.limit.branch-ratio}</minimum>
+										</limit>
+									</limits>
+								</rule>
+								<rule>
+									<element>CLASS</element>
+									<limits>
+										<limit>
+											<counter>COMPLEXITY</counter>
+											<value>TOTALCOUNT</value>
+											<maximum>${jacoco.unit-tests.limit.class-complexity}</maximum>
+										</limit>
+									</limits>
+								</rule>
+								<rule>
+									<element>METHOD</element>
+									<limits>
+										<limit>
+											<counter>COMPLEXITY</counter>
+											<value>TOTALCOUNT</value>
+											<maximum>${jacoco.unit-tests.limit.method-complexity}</maximum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

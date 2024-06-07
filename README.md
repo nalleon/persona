@@ -17,7 +17,7 @@
 > **Desarrolladores:** José Maximiliano B. M. ([@mackstm](https://github.com/mackstm)), Nabil L.A. ([@nalleon](https://github.com/nalleon)) 
 <br>
 
-Proyecto de temática libre realizado durante el curso 2023/2024 del CFGS de Desarrollo de Aplicaciones Multiplataforma (DAM) para el módulo de Base de Datos (BAE). Para realizarlo, hemos configurado una cuenta en [MongoDB Atlas](https://www.mongodb.com/) para utilizar un clúster que contenga 3 colecciones con las que implementaremos unas operaciones de CRUD sobre las entidades que perteneces a cada una de las colecciones respectivamente. 
+Proyecto de temática libre realizado durante el curso 2023/2024 del CFGS de Desarrollo de Aplicaciones Multiplataforma (DAM) para el módulo de Base de Datos (BAE). Para realizarlo, hemos configurado una cuenta en [MongoDB Atlas](https://www.mongodb.com/) para utilizar un clúster que contenga 3 colecciones con las que implementaremos unas operaciones de CRUD sobre las entidades que pertenecen a cada una de las colecciones respectivamente. Además, el proyecto tiene la estructura del modelo MVC y hemos usado spring-data junto con swagger.
 
 El proyecto ha sido desarrollado con la temática de la saga de videojuegos ***Persona*** perteneciente a ATLUS. 
 
@@ -39,6 +39,10 @@ El relacion a la tematica, decidimos crear nuestras 3 colecciones como Compedium
     private String arcana;
     private Set<String> strengths;
     private Set<String> weaknesses;
+
+    // Getters y setters
+
+    // toString y equlas/hash code
 ```
 
 > **NOTA:** El compedio está compuesto por los Persona, por lo tanto la clase se llama Persona.
@@ -52,6 +56,10 @@ El relacion a la tematica, decidimos crear nuestras 3 colecciones como Compedium
     private String game;
     private String arcana;
     private boolean wildCard;
+    
+    // Getters y setters
+
+    // toString y equlas/hash code
 ```
 
 **3.** Equipment
@@ -60,10 +68,14 @@ El relacion a la tematica, decidimos crear nuestras 3 colecciones como Compedium
     private String weaponName;
     private String weaponType;
     private int shopPrice;
+    
+    // Getters y setters
+
+    // toString y equlas/hash code
 ```
 
 ## Funcionalidades implementadas <a name="index03"></a>
-La aplicación incluye las funcionalidades de un CRUD respectivamente para cada una de las entidades del CRUD:
+La aplicación incluye las funcionalidades de un CRUD respectivamente para cada una de las entidades:
 
 - **Crear:**
   - Persona: Agregar un nuevo persona al compedio. 
@@ -90,99 +102,138 @@ La aplicación incluye las funcionalidades de un CRUD respectivamente para cada 
 <br>
 
 
-## Ejecución/Ejemplos <a name="index04"></a>
 
-Hemos utilizado swagger para mostrar como funcionan las operaciones.
+## Demostración <a name="index04"></a>
+
 
 ``````
 http://localhost:8080/api-persona/swagger-ui/index.html#/
 ``````
-- GET
-- POST
-- PUT
-- DELETE
+- [GET](#get)
+- [POST](#post)
+- [PUT](#put)
+- [DELETE](#delete)
 
-### GET
+### GET <a name="get"></a>
+
 1. Persona
+
+```
+Código: 200
+Respuesta:
+```
+
 
 <div align="center">
 <img src="img/get-persona.png">
 </div>
 
 2. PersonaUser
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 3. Equipment
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 
 
-### POST
+### POST <a name="post"></a>
 1. Persona
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 2. PersonaUser
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 3. Equipment
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 
 
-### PUT
+### PUT <a name="put"></a>
 1. Persona
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 2. PersonaUser
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 3. Equipment
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 
-### DELETE
+### DELETE <a name="delete"></a>
 1. Persona
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 2. PersonaUser
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 3. Equipment
-
+```
+Código: 200
+Respuesta:
+```
 <div align="center">
 <img src="">
 </div>
 
 
 </div>
-

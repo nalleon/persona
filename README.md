@@ -13,7 +13,7 @@
   - [Funcionalidades implementadas](#index03)
   - [Demostración](#index04)
 
-## Detalles del proyecto <a name="index01" ></a>
+## Detalles del proyecto <a name="index01"></a>
 > **Desarrolladores:** José Maximiliano B. M. ([@mackstm](https://github.com/mackstm)), Nabil L.A. ([@nalleon](https://github.com/nalleon)) 
 <br>
 
@@ -27,7 +27,7 @@ Las tecnologías que hemos utilizado han sido la siguientes:
 - [Visual Studio Code](https://code.visualstudio.com/) para la realización de documentos en markdown.
 - [GitHub](https://github.com/) para la gestión principal del proyecto.
 
-## Modelo de datos utilizado <a name="index02" ></a>
+## Modelo de datos utilizado <a name="index02"></a>
 
 El relacion a la tematica, decidimos crear nuestras 3 colecciones como Compedium, PersonaUser y Equipment.
 
@@ -265,7 +265,7 @@ Código: 200
 Respuesta:  connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:09:21 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/put-personaUser.png">
 </div>
 
 ## Equipment
@@ -286,10 +286,10 @@ Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:1
 <img src="img/put-equipment.png">
 </div>
 
-***
+<br>
 
-### DELETE <a name="delete"></a>
-1. Persona
+# DELETE <a name="delete"></a>
+## Persona
 ```
 Id: 6
 
@@ -301,26 +301,26 @@ Respuesta: connection: keep-alive  date: Fri,07 Jun 2024 11:15:18 GMT  keep-aliv
 <img src="img/delete-persona.png">
 </div>
 
-2. PersonaUser
+## PersonaUser
 ```
 Id: 1
 
 Código: 200
 
-Respuesta:  connection: keep-alive  date: Fri,07 Jun 2024 11:16:20 GMT  keep-alive: timeout=60 
+Respuesta: connection: keep-alive  date: Fri,07 Jun 2024 11:16:20 GMT  keep-alive: timeout=60 
 
 ```
 <div align="center">
 <img src="img/delete-personaUser.png">
 </div>
 
-3. Equipment
+## Equipment
 ```
 Id: 4
 
 Código: 200
 
-Respuesta:  connection: keep-alive  date: Fri,07 Jun 2024 11:13:32 GMT  keep-alive: timeout=60 
+Respuesta: connection: keep-alive  date: Fri,07 Jun 2024 11:13:32 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
 <img src="img/delete-equipment.png">

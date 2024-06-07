@@ -120,7 +120,8 @@ http://localhost:8080/api-persona/swagger-ui/index.html#/
 
 ```
 Código: 200
-Respuesta:
+
+Respuesta: connection: keep-alive  content-type: application/json  date: Fri,07 Jun 2024 10:45:39 GMT  keep-alive: timeout=60  transfer-encoding: chunked 
 ```
 
 
@@ -129,69 +130,134 @@ Respuesta:
 </div>
 
 2. PersonaUser
+
 ```
 Código: 200
-Respuesta:
+
+Respuesta: connection: keep-alive  content-type: application/json  date: Fri,07 Jun 2024 10:48:40 GMT  keep-alive: timeout=60  transfer-encoding: chunked 
 ```
+
 <div align="center">
-<img src="">
+<img src="img/get-personaUser.png">
 </div>
 
 3. Equipment
 ```
 Código: 200
-Respuesta:
+Respuesta: connection: keep-alive  content-type: application/json  date: Fri,07 Jun 2024 10:48:40 GMT  keep-alive: timeout=60  transfer-encoding: chunked 
 ```
 <div align="center">
-<img src="">
+<img src="img/get-equipment.png">
 </div>
 
-
+***
 
 ### POST <a name="post"></a>
 1. Persona
 ```
+Request body:
+{
+  "id": 6,
+  "name": "Yoshitsune",
+  "arcana": "Tower",
+  "strengths": [
+    "Fire", "Physical", "Electric", "Light"
+  ],
+  "weaknesses": [
+    "None"
+  ]
+}
+
 Código: 200
-Respuesta:
+
+Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 10:58:14 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/post-persona.png">
 </div>
 
 2. PersonaUser
 ```
+Request body:
+{
+  "_id": 6,
+  "name": "Naoto",
+  "lastName": "Shirogane",
+  "game": "Persona 4",
+  "arcana": "Fortune",
+  "wildCard": false
+}
+
 Código: 200
-Respuesta:
+
+Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 10:53:30 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/post-personaUser.png">
 </div>
 
 3. Equipment
 ```
+Request body:
+{
+  "id": 4,
+  "weaponName": "Nambu Model 60",
+  "weaponType": "Pistol",
+  "shopPrice": 1000
+}
+
 Código: 200
-Respuesta:
+
+Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:01:34 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/post-equipment.png">
 </div>
 
-
+***
 
 ### PUT <a name="put"></a>
 1. Persona
 ```
+Request body:
+{
+    "id": 6,
+    "name": "Izanagi-No-Okami",
+    "arcana": "THE WORLD",
+    "strengths": [
+      "Physical",
+      "Light",
+      "Fire",
+      "Electric"
+    ],
+    "weaknesses": [
+      "None"
+    ]
+  }
+
 Código: 200
-Respuesta:
+
+Respuesta:  connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:05:27 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/put-persona.png">
 </div>
 
 2. PersonaUser
 ```
+Request body:
+{
+    "id": 1,
+    "name": "Yosuke",
+    "lastName": "Hanamura",
+    "game": "Persona 4: GOLDEN",
+    "arcana": "Magician",
+    "wildCard": false
+}
+
 Código: 200
-Respuesta:
+
+Respuesta:  connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:09:21 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
 <img src="">
@@ -199,40 +265,60 @@ Respuesta:
 
 3. Equipment
 ```
+Request body:
+{
+    "id": 4,
+    "weaponName": "Nambu Model 90",
+    "weaponType": "Pistol",
+    "shopPrice": 1000
+}
+
 Código: 200
-Respuesta:
+
+Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:11:04 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/put-equipment.png">
 </div>
 
+***
 
 ### DELETE <a name="delete"></a>
 1. Persona
 ```
+Id: 6
+
 Código: 200
+Respuesta: connection: keep-alive  date: Fri,07 Jun 2024 11:15:18 GMT  keep-alive: timeout=60 
 Respuesta:
 ```
 <div align="center">
-<img src="">
+<img src="img/delete-persona.png">
 </div>
 
 2. PersonaUser
 ```
+Id: 1
+
 Código: 200
-Respuesta:
+
+Respuesta:  connection: keep-alive  date: Fri,07 Jun 2024 11:16:20 GMT  keep-alive: timeout=60 
+
 ```
 <div align="center">
-<img src="">
+<img src="img/delete-personaUser.png">
 </div>
 
 3. Equipment
 ```
+Id: 4
+
 Código: 200
-Respuesta:
+
+Respuesta:  connection: keep-alive  date: Fri,07 Jun 2024 11:13:32 GMT  keep-alive: timeout=60 
 ```
 <div align="center">
-<img src="">
+<img src="img/delete-equipment.png">
 </div>
 
 

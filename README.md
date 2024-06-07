@@ -104,19 +104,21 @@ La aplicación incluye las funcionalidades de un CRUD respectivamente para cada 
 
 
 ## Demostración <a name="index04"></a>
-
-
-``````
-http://localhost:8080/api-persona/swagger-ui/index.html#/
-``````
 - [GET](#get)
 - [POST](#post)
 - [PUT](#put)
 - [DELETE](#delete)
 
-### GET <a name="get"></a>
+``````
+http://localhost:8080/api-persona/swagger-ui/index.html#/
+``````
 
-1. Persona
+<br>
+
+
+# GET <a name="get"></a>
+
+## Persona
 
 ```
 Código: 200
@@ -129,7 +131,7 @@ Respuesta: connection: keep-alive  content-type: application/json  date: Fri,07 
 <img src="img/get-persona.png">
 </div>
 
-2. PersonaUser
+## PersonaUser
 
 ```
 Código: 200
@@ -141,19 +143,20 @@ Respuesta: connection: keep-alive  content-type: application/json  date: Fri,07 
 <img src="img/get-personaUser.png">
 </div>
 
-3. Equipment
+## Equipment
 ```
 Código: 200
+
 Respuesta: connection: keep-alive  content-type: application/json  date: Fri,07 Jun 2024 10:48:40 GMT  keep-alive: timeout=60  transfer-encoding: chunked 
 ```
 <div align="center">
 <img src="img/get-equipment.png">
 </div>
 
-***
+<br>
 
-### POST <a name="post"></a>
-1. Persona
+# POST <a name="post"></a>
+## Persona
 ```
 Request body:
 {
@@ -176,7 +179,7 @@ Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 10:5
 <img src="img/post-persona.png">
 </div>
 
-2. PersonaUser
+## PersonaUser
 ```
 Request body:
 {
@@ -196,7 +199,7 @@ Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 10:5
 <img src="img/post-personaUser.png">
 </div>
 
-3. Equipment
+## Equipment
 ```
 Request body:
 {
@@ -214,10 +217,12 @@ Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:0
 <img src="img/post-equipment.png">
 </div>
 
-***
+<br>
 
-### PUT <a name="put"></a>
-1. Persona
+# PUT <a name="put"></a>
+
+## Persona
+
 ```
 Request body:
 {
@@ -243,7 +248,7 @@ Respuesta:  connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:
 <img src="img/put-persona.png">
 </div>
 
-2. PersonaUser
+## PersonaUser
 ```
 Request body:
 {
@@ -263,7 +268,7 @@ Respuesta:  connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:
 <img src="">
 </div>
 
-3. Equipment
+## Equipment
 ```
 Request body:
 {
@@ -289,8 +294,8 @@ Respuesta: connection: keep-alive  content-length: 0  date: Fri,07 Jun 2024 11:1
 Id: 6
 
 Código: 200
+
 Respuesta: connection: keep-alive  date: Fri,07 Jun 2024 11:15:18 GMT  keep-alive: timeout=60 
-Respuesta:
 ```
 <div align="center">
 <img src="img/delete-persona.png">

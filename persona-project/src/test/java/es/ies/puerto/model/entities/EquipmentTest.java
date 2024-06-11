@@ -39,7 +39,8 @@ public class EquipmentTest extends UtilitiesTest {
 
         Assertions.assertEquals(equalsObject.hashCode(), equipment.hashCode(), MESSAGE_ERROR);
         Assertions.assertEquals(equalsObject, equipment, MESSAGE_ERROR);
-        Assertions.assertTrue(equipment.equals(equalsObject));
+        Assertions.assertTrue(equipment.equals(equalsObject), MESSAGE_ERROR);
+        Assertions.assertTrue(equipment.equals(equipment), MESSAGE_ERROR);
         Assertions.assertFalse(equipment.equals(notEquals), MESSAGE_ERROR);
         Assertions.assertFalse(equipment.equals(nullObject), MESSAGE_ERROR);
         Assertions.assertFalse(equipment.equals(str), MESSAGE_ERROR);

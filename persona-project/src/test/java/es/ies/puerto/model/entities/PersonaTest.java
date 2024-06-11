@@ -46,7 +46,9 @@ public class PersonaTest extends UtilitiesTest {
 
         Assertions.assertEquals(equalsObject.hashCode(), persona.hashCode(), MESSAGE_ERROR);
         Assertions.assertEquals(equalsObject, persona, MESSAGE_ERROR);
-        Assertions.assertTrue(persona.equals(equalsObject));
+        Assertions.assertTrue(persona.equals(equalsObject), MESSAGE_ERROR);
+
+        Assertions.assertTrue(persona.equals(persona), MESSAGE_ERROR);
         Assertions.assertFalse(persona.equals(notEquals), MESSAGE_ERROR);
         Assertions.assertFalse(persona.equals(nullObject), MESSAGE_ERROR);
         Assertions.assertFalse(persona.equals(str), MESSAGE_ERROR);

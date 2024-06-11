@@ -37,18 +37,22 @@ public class EquipmentService implements IServices<EquipmentDTO> {
     }
 
     @Override
-    public void addToCollection(EquipmentDTO equipmentDTO) {
+    public boolean addToCollection(EquipmentDTO equipmentDTO) {
+        if (iEquipmentDao.existsById(equipmentDTO.getId())){
+            return false;
+        }
+
         iEquipmentDao.insert(IMapperEquipment.INSTANCE.equipmentDTOToEquipment(equipmentDTO));
+        return true;
     }
 
     @Override
-    public void updateCollection(EquipmentDTO equipmentDTO) {
-        Equipment equipment = iEquipmentDao.findById(equipmentDTO.getId()).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
-
-        equipment = IMapperEquipment.INSTANCE.equipmentDTOToEquipment(equipmentDTO);
-
-        iEquipmentDao.save(equipment);
+    public boolean updateCollection(EquipmentDTO equipmentDTO) {
+        if (!iEquipmentDao.existsById(equipmentDTO.getId())){
+            return false;
+        }
+        iEquipmentDao.save(IMapperEquipment.INSTANCE.equipmentDTOToEquipment(equipmentDTO));
+        return true;
     }
 
     @Override
@@ -63,15 +67,28 @@ public class EquipmentService implements IServices<EquipmentDTO> {
 
     @Override
     public EquipmentDTO getByIdFromCollection(int id) {
-        Equipment equipment = iEquipmentDao.findById(id).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
-        return IMapperEquipment.INSTANCE.equipmentToEquipmentDTO(equipment);
+        if (!iEquipmentDao.existsById(id)) {
+            return null;
+        }
+
+        EquipmentDTO result = null;
+        List<EquipmentDTO> list = getAllFromCollection();
+
+        for (EquipmentDTO equipment: list){
+            if (equipment.getId() == id){
+                result = new EquipmentDTO();
+                result = equipment;
+            }
+        }
+        return result;
     }
 
     @Override
-    public void deleteFromCollection(int id) {
-        Equipment equipment = iEquipmentDao.findById(id).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
-        iEquipmentDao.delete(equipment);
+    public boolean deleteFromCollection(int id) {
+        if (!iEquipmentDao.existsById(id)){
+            return false;
+        }
+        iEquipmentDao.deleteById(id);
+        return true;
     }
 }

@@ -20,6 +20,11 @@ public class IMapperPersonaTest extends MapperHelper {
         Assertions.assertEquals(personaDTO.getStrengths(), personaDTOMapper.getStrengths(), MESSAGE_ERROR);
         Assertions.assertEquals(personaDTO.getWeaknesses(), personaDTOMapper.getWeaknesses(), MESSAGE_ERROR);
 
+        personaEntity.setStrengths(null);
+        personaEntity.setWeaknesses(null);
+        personaDTOMapper = IMapperPersona.INSTANCE.personaToPersonaDTO(personaEntity);
+        Assertions.assertNull(personaDTOMapper.getStrengths(), MESSAGE_ERROR);
+        Assertions.assertNull(personaDTOMapper.getWeaknesses(), MESSAGE_ERROR);
 
         personaEntity = null;
         personaDTOMapper = IMapperPersona.INSTANCE.personaToPersonaDTO(personaEntity);
@@ -35,6 +40,13 @@ public class IMapperPersonaTest extends MapperHelper {
         Assertions.assertEquals(personaEntity.getArcana(), personaEntityMapper.getArcana(), MESSAGE_ERROR);
         Assertions.assertEquals(personaEntity.getStrengths(), personaEntityMapper.getStrengths(), MESSAGE_ERROR);
         Assertions.assertEquals(personaEntity.getWeaknesses(), personaEntityMapper.getWeaknesses(), MESSAGE_ERROR);
+
+        personaDTO.setStrengths(null);
+        personaDTO.setWeaknesses(null);
+        personaEntityMapper = IMapperPersona.INSTANCE.personaDTOToPersona(personaDTO);
+        Assertions.assertNull(personaEntityMapper.getStrengths(), MESSAGE_ERROR);
+        Assertions.assertNull(personaEntityMapper.getWeaknesses(), MESSAGE_ERROR);
+
         personaDTO = null;
         personaEntityMapper = IMapperPersona.INSTANCE.personaDTOToPersona(personaDTO);
         Assertions.assertNull(personaEntityMapper, MESSAGE_ERROR);

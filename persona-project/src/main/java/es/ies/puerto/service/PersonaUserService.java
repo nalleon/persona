@@ -1,5 +1,6 @@
 package es.ies.puerto.service;
 
+import es.ies.puerto.business.dto.EquipmentDTO;
 import es.ies.puerto.business.dto.PersonaUserDTO;
 import es.ies.puerto.mapper.struct.IMapperPersonaUser;
 import es.ies.puerto.model.db.mongo.dao.IPersonaUserDao;
@@ -37,18 +38,24 @@ public class PersonaUserService implements IServices<PersonaUserDTO> {
     }
 
     @Override
-    public void addToCollection(PersonaUserDTO personaUserDTO) {
+    public boolean addToCollection(PersonaUserDTO personaUserDTO) {
+        if (iPersonaUserDao.existsById(personaUserDTO.getId())){
+            return false;
+        }
+
         iPersonaUserDao.insert(IMapperPersonaUser.INSTANCE.personaUserDTOToPersonaUser(personaUserDTO));
+        return true;
     }
 
     @Override
-    public void updateCollection(PersonaUserDTO personaUserDTO) {
-        PersonaUser personaUser = iPersonaUserDao.findById(personaUserDTO.getId()).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
+    public boolean updateCollection(PersonaUserDTO personaUserDTO) {
+        if (!iPersonaUserDao.existsById(personaUserDTO.getId())){
+           return false;
+        }
 
-        personaUser = IMapperPersonaUser.INSTANCE.personaUserDTOToPersonaUser(personaUserDTO);
+        iPersonaUserDao.save(IMapperPersonaUser.INSTANCE.personaUserDTOToPersonaUser(personaUserDTO));
+        return true;
 
-        iPersonaUserDao.save(personaUser);
     }
 
     @Override
@@ -63,15 +70,29 @@ public class PersonaUserService implements IServices<PersonaUserDTO> {
 
     @Override
     public PersonaUserDTO getByIdFromCollection(int id) {
-        PersonaUser personaUser = iPersonaUserDao.findById(id).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
-        return IMapperPersonaUser.INSTANCE.personaUserToPersonaUserDTO(personaUser);
+        if (!iPersonaUserDao.existsById(id)){
+            return null;
+        }
+
+        PersonaUserDTO result = null;
+        List<PersonaUserDTO> personaUserDTOS = getAllFromCollection();
+
+        for (PersonaUserDTO personaUserDTO : personaUserDTOS){
+            if (personaUserDTO.getId() == id){
+                result = personaUserDTO;
+                break;
+            }
+        }
+
+        return result;
     }
 
     @Override
-    public void deleteFromCollection(int id) {
-        PersonaUser personaUser = iPersonaUserDao.findById(id).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
-        iPersonaUserDao.delete(personaUser);
+    public boolean deleteFromCollection(int id) {
+        if (!iPersonaUserDao.existsById(id)){
+            return false;
+        }
+        iPersonaUserDao.deleteById(id);
+        return true;
     }
 }

@@ -36,18 +36,22 @@ public class PersonaService implements IServices<PersonaDTO> {
     }
 
     @Override
-    public void addToCollection(PersonaDTO personaDTO) {
+    public boolean addToCollection(PersonaDTO personaDTO) {
+        if (iPersonaDao.existsById(personaDTO.getId())){
+            return false;
+        }
         iPersonaDao.insert(IMapperPersona.INSTANCE.personaDTOToPersona(personaDTO));
+        return true;
     }
 
     @Override
-    public void updateCollection(PersonaDTO personaDTO) {
-        Persona persona = iPersonaDao.findById(personaDTO.getId()).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
+    public boolean updateCollection(PersonaDTO personaDTO) {
+        if (!iPersonaDao.existsById(personaDTO.getId())){
+            return false;
+        }
 
-        persona = IMapperPersona.INSTANCE.personaDTOToPersona(personaDTO);
-
-        iPersonaDao.save(persona);
+        iPersonaDao.save(IMapperPersona.INSTANCE.personaDTOToPersona(personaDTO));
+        return true;
     }
 
     @Override
@@ -68,9 +72,11 @@ public class PersonaService implements IServices<PersonaDTO> {
     }
 
     @Override
-    public void deleteFromCollection(int id) {
-        Persona persona = iPersonaDao.findById(id).orElseThrow(
-                () -> new RuntimeException("Cannot find by ID"));
-        iPersonaDao.delete(persona);
+    public boolean deleteFromCollection(int id) {
+        if (!iPersonaDao.existsById(id)){
+            return false;
+        }
+        iPersonaDao.deleteById(id);
+        return true;
     }
 }

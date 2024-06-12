@@ -3,6 +3,7 @@ package es.ies.puerto.services;
 import es.ies.puerto.business.dto.EquipmentDTO;
 import es.ies.puerto.model.db.mongo.dao.IEquipmentDao;
 import es.ies.puerto.model.entities.impl.Equipment;
+import es.ies.puerto.model.entities.impl.Persona;
 import es.ies.puerto.service.EquipmentService;
 import es.ies.puerto.service.interfaces.IServices;
 import es.ies.puerto.utilities.UtilitiesTest;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -45,10 +47,19 @@ public class EquipmentServiceTest extends UtilitiesTest {
         Assertions.assertNotNull(service.getAllFromCollection(), MESSAGE_ERROR);
     }
 
-    //@Test
+    @Test
     void getOneTest() {
-        when(daoMock.existsById(1)).thenReturn(true);
+        when(daoMock.findById(1)).thenReturn(Optional.of(new Equipment()));
         Assertions.assertNotNull(service.getByIdFromCollection(1), MESSAGE_ERROR);
+    }
+
+    @Test
+    void getOneNonexistent() {
+        RuntimeException thrown;
+        thrown = assertThrows(RuntimeException.class, () -> {
+            service.getByIdFromCollection(1);
+        });
+        Assertions.assertEquals("Cannot find by ID", thrown.getMessage(), MESSAGE_ERROR);
     }
 
     @Test
@@ -57,9 +68,9 @@ public class EquipmentServiceTest extends UtilitiesTest {
         Assertions.assertTrue(service.addToCollection(new EquipmentDTO(1)), MESSAGE_ERROR);
     }
 
-  //  @Test
+  @Test
     void addDupeTest() {
-        when(daoMock.save(any(Equipment.class))).thenReturn(null);
+      when(daoMock.existsById(10000)).thenReturn(true);
         Assertions.assertFalse(service.addToCollection(new EquipmentDTO(10000)), MESSAGE_ERROR);
     }
 

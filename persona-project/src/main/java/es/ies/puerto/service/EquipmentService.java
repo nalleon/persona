@@ -2,8 +2,10 @@ package es.ies.puerto.service;
 
 import es.ies.puerto.business.dto.EquipmentDTO;
 import es.ies.puerto.mapper.struct.IMapperEquipment;
+import es.ies.puerto.mapper.struct.IMapperPersona;
 import es.ies.puerto.model.db.mongo.dao.IEquipmentDao;
 import es.ies.puerto.model.entities.impl.Equipment;
+import es.ies.puerto.model.entities.impl.Persona;
 import es.ies.puerto.service.interfaces.IServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,20 +69,9 @@ public class EquipmentService implements IServices<EquipmentDTO> {
 
     @Override
     public EquipmentDTO getByIdFromCollection(int id) {
-        if (!iEquipmentDao.existsById(id)) {
-            return null;
-        }
-
-        EquipmentDTO result = null;
-        List<EquipmentDTO> list = getAllFromCollection();
-
-        for (EquipmentDTO equipment: list){
-            if (equipment.getId() == id){
-                result = new EquipmentDTO();
-                result = equipment;
-            }
-        }
-        return result;
+        Equipment equipment = iEquipmentDao.findById(id).orElseThrow(
+                () -> new RuntimeException("Cannot find by ID"));
+        return IMapperEquipment.INSTANCE.equipmentToEquipmentDTO(equipment);
     }
 
     @Override

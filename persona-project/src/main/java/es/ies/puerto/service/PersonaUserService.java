@@ -2,8 +2,10 @@ package es.ies.puerto.service;
 
 import es.ies.puerto.business.dto.EquipmentDTO;
 import es.ies.puerto.business.dto.PersonaUserDTO;
+import es.ies.puerto.mapper.struct.IMapperPersona;
 import es.ies.puerto.mapper.struct.IMapperPersonaUser;
 import es.ies.puerto.model.db.mongo.dao.IPersonaUserDao;
+import es.ies.puerto.model.entities.impl.Persona;
 import es.ies.puerto.model.entities.impl.PersonaUser;
 import es.ies.puerto.service.interfaces.IServices;
 import org.slf4j.Logger;
@@ -70,21 +72,9 @@ public class PersonaUserService implements IServices<PersonaUserDTO> {
 
     @Override
     public PersonaUserDTO getByIdFromCollection(int id) {
-        if (!iPersonaUserDao.existsById(id)){
-            return null;
-        }
-
-        PersonaUserDTO result = null;
-        List<PersonaUserDTO> personaUserDTOS = getAllFromCollection();
-
-        for (PersonaUserDTO personaUserDTO : personaUserDTOS){
-            if (personaUserDTO.getId() == id){
-                result = personaUserDTO;
-                break;
-            }
-        }
-
-        return result;
+        PersonaUser personaUser = iPersonaUserDao.findById(id).orElseThrow(
+                () -> new RuntimeException("Cannot find by ID"));
+        return IMapperPersonaUser.INSTANCE.personaUserToPersonaUserDTO(personaUser);
     }
 
     @Override

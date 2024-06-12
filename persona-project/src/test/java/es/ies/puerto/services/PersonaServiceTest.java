@@ -18,7 +18,9 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -47,10 +49,19 @@ public class PersonaServiceTest extends UtilitiesTest {
         Assertions.assertNotNull(service.getAllFromCollection(), MESSAGE_ERROR);
     }
 
-    //@Test
+    @Test
     void getOneTest() {
-        when(daoMock.existsById(1)).thenReturn(true);
+        when(daoMock.findById(1)).thenReturn(Optional.of(new Persona()));
         Assertions.assertNotNull(service.getByIdFromCollection(1), MESSAGE_ERROR);
+    }
+
+    @Test
+    void getOneNonexistent() {
+        RuntimeException thrown;
+        thrown = assertThrows(RuntimeException.class, () -> {
+            service.getByIdFromCollection(1);
+        });
+        Assertions.assertEquals("Cannot find by ID", thrown.getMessage(), MESSAGE_ERROR);
     }
 
     @Test
@@ -59,9 +70,9 @@ public class PersonaServiceTest extends UtilitiesTest {
         Assertions.assertTrue(service.addToCollection(new PersonaDTO(1)), MESSAGE_ERROR);
     }
 
-    //  @Test
+    @Test
     void addDupeTest() {
-        when(daoMock.save(any(Persona.class))).thenReturn(null);
+        when(daoMock.existsById(10000)).thenReturn(true);
         Assertions.assertFalse(service.addToCollection(new PersonaDTO(10000)), MESSAGE_ERROR);
     }
 
